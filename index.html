@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PASOKARI | Sayur & Buah Segar</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z' fill='%234285F4'/%3E%3Cpath d='M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z' fill='%23EA4335' style='mix-blend-mode: screen; transform: rotate(15deg); transform-origin: center;'/%3E%3Cpath d='M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z' fill='%23FBBC05' style='mix-blend-mode: screen; transform: rotate(30deg); transform-origin: center;'/%3E%3Cpath d='M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z' fill='%2334A853' style='mix-blend-mode: screen; transform: rotate(45deg); transform-origin: center;'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="preloader">
+        <svg class="preloader-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z" fill="#4285F4"/>
+            <path d="M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z" fill="#EA4335" style="mix-blend-mode: screen; transform: rotate(15deg); transform-origin: center;"/>
+            <path d="M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z" fill="#FBBC05" style="mix-blend-mode: screen; transform: rotate(30deg); transform-origin: center;"/>
+            <path d="M50 0L61.2 38.8L100 50L61.2 61.2L50 100L38.8 61.2L0 50L38.8 38.8z" fill="#34A853" style="mix-blend-mode: screen; transform: rotate(45deg); transform-origin: center;"/>
+        </svg>
+    </div>
+
+    <div class="main-container">
+        <section class="hero-background"></section>
+
+        <div class="content-overlay">
+            <header class="navbar">
+    <div class="nav-left">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Pasokari Logo" class="logo" />
+            <span class="brand-name">PASOKARI</span>
+        </div>
+    </div>
+
+    <nav class="nav-center">
+        <a href="#" class="active">Beranda</a>
+        <a href="#products">Produk</a>
+        <a href="#about">Tentang</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <div class="nav-right">
+        <button id="langBtn" class="lang-btn">EN</button>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <nav class="nav-mobile">
+        <a href="#" class="active">Beranda</a>
+        <a href="#products">Produk</a>
+        <a href="#about">Tentang</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+</header>
+
+            <main class="products">
+                <div class="hero-content">
+                    <h1>Mitra Terpercaya Rantai Pasok Sayur & Buah Segar</h1>
+                    <p>Menjamin kesegaran dan kualitas premium dari petani lokal terpercaya.</p>
+                </div>
+                <h2>Kategori Produk</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-category="Sayuran"><img src="assets/sayur.jpg" alt="Sayuran" /><h3>Sayuran</h3></div>
+                    <div class="product-card" data-category="Herbs & Spices"><img src="assets/herbs.jpg" alt="Herbs & Spices" /><h3>Herbs & Spices</h3></div>
+                    <div class="product-card" data-category="Buah-buahan"><img src="assets/buah.jpg" alt="Buah-buahan" /><h3>Buah-buahan</h3></div>
+                    <div class="product-card" data-category="Bahan Pangan Lain"><img src="assets/pangan.jpg" alt="Bahan Pangan Lain" /><h3>Bahan Pangan Lain</h3></div>
+                    <div class="product-card" data-category="Frozen Food"><img src="assets/frozen.jpg" alt="Frozen Food" /><h3>Frozen Food</h3></div>
+                </div>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-icons">
+                    <a href="https://wa.me/628111289655" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" /></a>
+                    <a href="mailto:sipasokari@gmail.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" /></a>
+                    <a href="https://instagram.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" /></a>
+                    <a href="https://linkedin.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" /></a>
+                </div>
+                <p>© 2025 PASOKARI | Trusted Quality, Delivered with Care.</p>
+            </footer>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+            <div class="contact-icons">
+                <a href="https://wa.me/628111289655" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" /></a>
+                <a href="mailto:sipasokari@gmail.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" /></a>
+            </div>
+        </div>
+    </div>
+    
+    <script defer src="script.js"></script>
+</body>
+</html>
