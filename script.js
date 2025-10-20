@@ -54,7 +54,7 @@ document.getElementById('langBtn').addEventListener('click', () => {
 
 // ==== KODE BARU UNTUK NAVBAR RESPONSIVE ====
 const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.querySelector('.nav-links');
+const navLinks = document.querySelector('.nav-mobile');
 
 menuToggle.addEventListener('click', () => {
   // Toggle kelas 'active' pada menu navigasi untuk memunculkannya
