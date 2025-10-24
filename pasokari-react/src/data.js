@@ -1,0 +1,109 @@
+// src/data.js
+
+export const categoryData = {
+    "Sayuran": {
+        id: { products: ["BAYAM HIJAU","BEETROOT","BROKOLI","BUNCIS","BUNCIS BABY","DAUN KEMANGI","DAUN PANDAN","DAUN PISANG","DAUN SELEDRI","DAUN SINGKONG","EDAMAME","HORENSO","JAGUNG ACAR","JAGUNG MANIS KULIT","JAGUNG MANIS KUPAS","JAMUR CHAMPIGNON","JAMUR ENOKI","JAMUR KUPING BASAH","JAMUR SHIMEJI COKELAT","JAMUR TIRAM","JAMUR LIMAU","KACANG PANJANG","KACANG TANAH","KAILAN BABY","KANGKUNG","KEMBANG KOL","KENTANG BABY","KENTANG DIENG","KOL PUTIH","KOL UNGU","KUCAI","LABU SIAM","LABU SIAM ACAR","LOBAK PUTIH","OYONG","PAKCOY (REG/ORGANIC)","PAPRIKA (MERAH/HIJAU)","PARE","PARSLEY","SAWI HIJAU","SAWI PUTIH","SELADA KERITING","SELADA ROMAINE HIJAU","SELEDRI STICK","TAUGE","TERONG UNGU","TIMUN","TIMUN JEPANG","TOMAT MERAH","UBI CILEMBU","UBI MERAH","UBI UNGU","WORTEL BABY","WORTEL BRASTAGI","WORTEL ORGANIK","ZUCCHINI"] },
+        en: { products: ["GREEN SPINACH","BEETROOT","BROCCOLI","GREEN BEANS","BABY GREEN BEANS","BASIL LEAVES","PANDAN LEAVES","BANANA LEAVES","CELERY LEAVES","CASSAVA LEAVES","EDAMAME","HORENSO (Japanese Spinach)","BABY CORN","SWEET CORN (with husk)","SWEET CORN (peeled)","CHAMPIGNON MUSHROOM","ENOKI MUSHROOM","WOOD EAR MUSHROOM (wet)","BROWN SHIMEJI MUSHROOM","OYSTER MUSHROOM","LIME MUSHROOM? (Verify name)","LONG BEANS","PEANUTS","BABY KALE","WATER SPINACH","CAULIFLOWER","BABY POTATOES","DIENG POTATOES","WHITE CABBAGE","RED CABBAGE","CHIVES","CHAYOTE","PICKLED CHAYOTE","DAIKON RADISH","LUFFA","PAK CHOY (REG/ORGANIC)","BELL PEPPER (RED/GREEN)","BITTER MELON","PARSLEY","MUSTARD GREENS","NAPA CABBAGE","CURLY LETTUCE","GREEN ROMAINE LETTUCE","CELERY STICK","BEAN SPROUTS","PURPLE EGGPLANT","CUCUMBER","JAPANESE CUCUMBER","RED TOMATO","CILEMBU SWEET POTATO","RED SWEET POTATO","PURPLE SWEET POTATO","BABY CARROT","BRASTAGI CARROT","ORGANIC CARROT","ZUCCHINI"] }
+    },
+    "Herbs & Spices": {
+        id: { products: ["BAWANG BOMBAY","BAWANG MERAH","BAWANG PUTIH (REG/KATING)","BIJI PALA","CABAI HIJAU BESAR","CABAI HIJAU KERITING","CABAI MERAH BESAR","CABAI MERAH KERITING","CABAI RAWIT HIJAU","CABAI RAWIT MERAH","CENGKEH","DAUN BASIL","DAUN JERUK (REG/ORGANIK)","DAUN SALAM","JAHE GAJAH","JAHE PUTIH","JINTEN","KAPULAGA","KAYU MANIS","KENCUR","KUNYIT","LADA HITAM UTUH","LADA PUTIH UTUH","LENGKUAS","RASEDA ASAM JAWA","SEREH"] },
+        en: { products: ["ONION","SHALLOTS","GARLIC (REG/KATING)","NUTMEG","LARGE GREEN CHILI","CURLY GREEN CHILI","LARGE RED CHILI","CURLY RED CHILI","GREEN BIRD'S EYE CHILI","RED BIRD'S EYE CHILI","CLOVES","BASIL LEAVES","LIME LEAVES (REG/ORGANIC)","BAY LEAVES","ELEPHANT GINGER","WHITE GINGER","CUMIN","CARDAMOM","CINNAMON","GALANGAL (Kaempferia galanga)","TURMERIC","WHOLE BLACK PEPPER","WHOLE WHITE PEPPER","GALANGAL (Alpinia galanga)","TAMARIND PASTE","LEMONGRASS"] }
+    },
+    "Buah-buahan": {
+        id: { products: ["ALPUKAT MENTEGA","ANGGUR","APEL","BLEWAH","BUAH NAGA","JERUK","JAMBU","NANAS","MANGGA","MELON","PEPAYA","PISANG","SEMANGKA","STRAWBERRY"] },
+        en: { products: ["AVOCADO","GRAPES","APPLE","CANTALOUPE","DRAGON FRUIT","ORANGE","GUAVA","PINEAPPLE","MANGO","MELON","PAPAYA","BANANA","WATERMELON","STRAWBERRY"] }
+    },
+    "Bahan Pangan Lain": {
+        id: { products: ["EMPING MELINJO","KACANG HIJAU","KELAPA MUDA","KETAN HITAM","TAHU","TELUR","TEMPE"] },
+        en: { products: ["MELINJO CRACKERS","MUNG BEANS","YOUNG COCONUT","BLACK GLUTINOUS RICE","TOFU","EGGS","TEMPEH"] }
+    },
+    "Frozen Food": {
+        id: { products: ["STRAIGHT CUT 2.5 KG","SHOESTRING 2.5 KG","CRINCLE CUT 2.5 KG","SOSIS COCKTAIL AKAI 66 PCS","BAKSO BEEF AKAI 50 PCS"] },
+        en: { products: ["STRAIGHT CUT FRIES 2.5 KG","SHOESTRING FRIES 2.5 KG","CRINKLE CUT FRIES 2.5 KG","AKAI COCKTAIL SAUSAGES 66 PCS","AKAI BEEF BALLS 50 PCS"] }
+    }
+};
+
+export const translations = {
+    'id': {
+        navHome: 'Beranda', navProducts: 'Produk', navAbout: 'Tentang', navContact: 'Kontak',
+        heroTitle: 'Solusi Terpercaya Produk Pangan Berkualitas',
+        heroSubtitle: 'Menjamin kesegaran dan kualitas premium melalui kemitraan agrikultur lokal terpilih.',
+        heroCTA: 'Lihat Kategori',
+        productsTitle: 'Kategori Produk',
+        aboutTitle: 'PASOKARI',
+        aboutText1: 'Mitra rantai pasok tepercaya untuk bahan pangan segar premium, PASOKARI meyakini bahwa kualitas terbaik hidangan berakar pada bahan baku unggulan.',
+        aboutText2: 'Melalui aliansi agrikultur dengan produsen lokal yang berkomitmen pada praktik berkelanjutan, PASOKARI menawarkan lebih dari pasokan. Kami adalah solusi rantai pasok profesional yang dirancang untuk secara langsung mendukung dan mengoptimalkan efisiensi operasional dapur.',
+        contactTitle: 'Hubungi Kami',
+        contactSubtitle: 'Siap untuk berdiskusi tentang kebutuhan Anda? Hubungi kami melalui platform di bawah ini.',
+        contactWhatsApp: 'Hubungi via WhatsApp',
+        contactEmail: 'Kirim Email',
+        footerText: 'Kualitas Terpercaya, Diantar Dengan Penuh Kepedulian.',
+        contactInfoTitle: 'Informasi Kontak',
+        contactAddressTitle: 'Alamat:',
+        contactAddressText: 'Citra Sentul Raya,<br>Bogor, Jawa Barat, 16810',
+        contactPhoneTitle: 'Telepon:',
+        contactEmailTitle: 'Email:',
+        contactSocialTitle: 'Media Sosial:',
+        contactFormTitleAlt: 'Butuh Bantuan? Hubungi Kami',
+        contactFormDescAlt: 'Isi formulir di bawah ini dan tim kami akan segera menghubungi anda.',
+        formNamePlaceholder: 'Nama Anda',
+        formPhonePlaceholder: 'Nomor Telepon Anda',
+        formEmailPlaceholder: 'Email Anda',
+        formMessagePlaceholder: 'Pesan Anda',
+        formSend: 'Kirim Pesan',
+        modalProductsTitle: 'Produk Tersedia:',
+        modalCTA: 'Minta Penawaran untuk Kategori Ini',
+        productDetailCTA: 'Minta Penawaran Produk Ini',
+        categoryVegetables: 'Sayuran',
+        categoryHerbs: 'Rempah & Bumbu',
+        categoryFruits: 'Buah-buahan',
+        categoryStaples: 'Bahan Pangan Lain',
+        categoryFrozen: 'Makanan Beku',
+        modalSayuranDesc: 'Pilihan sayuran terbaik untuk hidangan sehat Anda, dikurasi dari sumber lokal terpercaya.',
+        modalHerbsDesc: 'Ragam bumbu segar yang menambah aroma dan cita rasa alami, dipilih untuk meningkatkan kualitas setiap hidangan.',
+        modalBuahDesc: 'Buah segar penuh vitamin untuk setiap momen, dipetik pada tingkat kematangan optimal untuk rasa terbaik.',
+        modalPanganDesc: 'Kacang, telur, tahu, tempe, dan bahan pokok berkualitas lainnya untuk melengkapi kebutuhan dapur Anda.',
+        modalFrozenDesc: 'Solusi cepat untuk hidangan praktis dan lezat, dibuat dari bahan berkualitas dan diproses secara higienis.'
+    },
+    'en': {
+        navHome: 'Home', navProducts: 'Products', navAbout: 'About', navContact: 'Contact',
+        heroTitle: 'Trusted Solution for Quality Food Products',
+        heroSubtitle: 'Ensuring premium freshness and quality through chosen local agricultural partnerships.',
+        heroCTA: 'View Categories',
+        productsTitle: 'Product Categories',
+        aboutTitle: 'PASOKARI',
+        aboutText1: 'PASOKARI, the trusted supply chain partner for premium fresh food ingredients, asserts that the finest culinary outcomes are rooted in superior sourcing.',
+        aboutText2: 'By leveraging sustainable agricultural alliances with local producers, we transcend conventional procurement. PASOKARI provides a professional supply chain solution specifically designed to directly enhance and streamline critical daily kitchen operations.',
+        contactTitle: 'Contact Us',
+        contactSubtitle: 'Ready to discuss your needs? Reach out to us through the platforms below.',
+        contactWhatsApp: 'Contact via WhatsApp',
+        contactEmail: 'Send Email',
+        footerText: 'Trusted Quality, Delivered With Care.',
+        contactInfoTitle: 'Contact Information',
+        contactAddressTitle: 'Address:',
+        contactAddressText: 'Citra Sentul Raya,<br>Bogor, West Java, 16810',
+        contactPhoneTitle: 'Phone:',
+        contactEmailTitle: 'Email:',
+        contactSocialTitle: 'Social Media:',
+        contactFormTitleAlt: 'Need Help? Contact Us',
+        contactFormDescAlt: 'Fill out the form below and our team will contact you shortly.',
+        formNamePlaceholder: 'Your Name',
+        formPhonePlaceholder: 'Your Phone Number',
+        formEmailPlaceholder: 'Your Email',
+        formMessagePlaceholder: 'Your Message',
+        formSend: 'Send Message',
+        modalProductsTitle: 'Available Products:',
+        modalCTA: 'Request Quote for This Category',
+        productDetailCTA: 'Request Quote for This Product',
+        categoryVegetables: 'Vegetables',
+        categoryHerbs: 'Herbs & Spices',
+        categoryFruits: 'Fruits',
+        categoryStaples: 'Other Staples',
+        categoryFrozen: 'Frozen Food',
+        modalSayuranDesc: 'The best selection of vegetables for your healthy dishes, curated from trusted local sources.',
+        modalHerbsDesc: 'A variety of fresh seasonings adding natural aroma and flavor, selected to enhance the quality of every dish.',
+        modalBuahDesc: 'Fresh fruits full of vitamins for every moment, picked at optimal ripeness for the best flavor.',
+        modalPanganDesc: 'Quality nuts, eggs, tofu, tempeh, and other staple foods to complete your kitchen needs.',
+        modalFrozenDesc: 'A quick solution for practical and delicious meals, made from quality ingredients and processed hygienically.'
+    }
+};
