@@ -1,0 +1,13 @@
+# Virtual Environment
+venv/
+*.pyc
+__pycache__/
+
+# Environment Variables (SANGAT PENTING!)
+.env
+
+# macOS specific
+.DS_Store
+
+# Database file (jika suatu saat pakai SQLite)
+*.db
