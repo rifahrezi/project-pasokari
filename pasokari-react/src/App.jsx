@@ -1,6 +1,8 @@
 // src/App.jsx
-import React, { useState, useEffect } from 'react';
-import { categoryData, translations } from './data';
+import React, { useState, useEffect, useMemo } from 'react';
+// Import 'Navigate' untuk ProtectedRoute
+import { Routes, Route, Navigate } from 'react-router-dom'; 
+import { translations } from './data';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
@@ -9,125 +11,247 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CategoryModal from './components/CategoryModal';
 import ProductDetailModal from './components/ProductDetailModal';
+import ProductAdmin from './components/ProductAdmin';
+import LoginPage from './components/LoginPage'; 
+
+// === KONFIGURASI API BASE URL ===
+// Gunakan environment variable (VITE_API_BASE_URL) jika tersedia, 
+// atau fallback ke localhost untuk pengembangan.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000';
+
+// Komponen MainPage Anda (tidak berubah)
+const MainPage = ({ T, openCategoryModal, categoryData, allProducts }) => (
+  <>
+    <Hero T={T} />
+    <Products T={T} openCategoryModal={openCategoryModal} categoryData={categoryData} />
+    <About T={T} />
+    <Contact T={T} />
+  </>
+);
+
+// Komponen Helper untuk Proteksi Route
+const ProtectedRoute = ({ user, children }) => {
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
 
 function App() {
-  // === STATE MANAGEMENT ===
+  // === STATE ===
   const [currentLang, setCurrentLang] = useState(document.documentElement.lang || 'id');
+  const [allProducts, setAllProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); 
+  
+  const [currentUser, setCurrentUser] = useState(null); 
+  const [isAuthLoading, setIsAuthLoading] = useState(true); 
+
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // === HANDLER FUNCTIONS ===
+  // === HANDLERS ===
   const handleLanguageChange = (lang) => {
     setCurrentLang(lang);
     document.documentElement.lang = lang;
   };
-  
-  // Fungsi Translate sederhana untuk React
+
   const T = (key) => {
     return translations[currentLang]?.[key] || translations['id']?.[key] || key;
   };
 
-  // Logika Modal
   const openCategoryModal = (category) => {
     setSelectedCategory(category);
     setIsCategoryModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Nonaktifkan scroll
   };
 
   const closeCategoryModal = () => {
     setIsCategoryModalOpen(false);
-    document.body.style.overflow = 'auto'; // Aktifkan scroll
   };
-  
+
   const openProductDetailModal = (product) => {
-      setSelectedProduct(product);
-      setIsDetailModalOpen(true);
-      // NOTE: Kita TIDAK menutup CategoryModal di sini,
-      // karena kita ingin ketika ProductDetailModal ditutup, CategoryModal muncul lagi.
+    setSelectedProduct(product);
+    setIsDetailModalOpen(true);
   };
 
   const closeProductDetailModal = () => {
-      setIsDetailModalOpen(false);
-      // Aktifkan kembali modal kategori setelah modal detail ditutup
-      if (selectedCategory) {
-          setIsCategoryModalOpen(true); 
-      }
+    setIsDetailModalOpen(false);
+    if (selectedCategory) {
+      setIsCategoryModalOpen(true);
+    }
+  };
+  
+  const handleLoginSuccess = (user) => {
+    setCurrentUser(user);
   };
 
+  // Handler untuk logout - MENGGUNAKAN API_BASE_URL
+  const handleLogout = async () => {
+    try {
+      await fetch(`${API_BASE_URL}/api/logout`, {
+        method: 'POST',
+        credentials: 'include', 
+      });
+    } catch (err) {
+      console.error("Error logging out:", err);
+    } finally {
+      setCurrentUser(null); 
+    }
+  };
 
-  // === EFFECT HOOKS ===
-
-  // Efek untuk Preloader (hanya pada load pertama)
+  // === EFFECTS ===
+  // Fetch Product Data - MENGGUNAKAN API_BASE_URL
   useEffect(() => {
+    fetch(`${API_BASE_URL}/api/products`)
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to load product data (Status: ${response.status})`);
+        return response.json();
+      })
+      .then(data => {
+        setAllProducts(data);
+        setIsLoading(false); 
+      })
+      .catch(error => {
+        console.error("Error Fetching Product Data:", error);
+        setIsLoading(false);
+      });
+    
+    document.documentElement.lang = currentLang;
+    
+    // Logika Preloader
     const preloader = document.querySelector('.preloader');
     if (preloader) {
-      // Tunggu hingga seluruh halaman dimuat (simulasi window.onload)
-      const handleLoad = () => {
-        preloader.classList.add('hidden');
-      };
-      // Jika halaman sudah dimuat (React sudah terpasang) segera sembunyikan
-      if (document.readyState === 'complete') {
-        handleLoad();
-      } else {
-        window.addEventListener('load', handleLoad);
-        // Cleanup event listener
-        return () => window.removeEventListener('load', handleLoad);
-      }
+      const handleLoad = () => { preloader.classList.add('hidden'); };
+      if (document.readyState === 'complete') { handleLoad(); }
+      else { window.addEventListener('load', handleLoad); }
+      return () => window.removeEventListener('load', handleLoad);
     }
-  }, []); // Hanya berjalan saat mount
+  }, []); 
 
-  // Efek untuk menangani body scroll saat modal aktif/nonaktif
+  // Effect baru: Cek status login saat App pertama kali dimuat - MENGGUNAKAN API_BASE_URL
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/check_auth`, {
+          credentials: 'include', 
+        });
+        const data = await response.json();
+        if (data.isLoggedIn) {
+          setCurrentUser(data.user);
+        } else {
+          setCurrentUser(null);
+        }
+      } catch (err) {
+        console.error("Gagal mengecek status auth:", err);
+        setCurrentUser(null);
+      } finally {
+        setIsAuthLoading(false); 
+      }
+    };
+    
+    checkAuthStatus();
+  }, []); 
+
+  // Body scroll management (tidak berubah)
   useEffect(() => {
     if (isCategoryModalOpen || isDetailModalOpen) {
-        document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
     } else {
-        document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
     }
-    // Tambahan: Menonaktifkan scroll saat salah satu modal terbuka
     return () => {
-        document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
     };
   }, [isCategoryModalOpen, isDetailModalOpen]);
 
+  // Reconstruct categoryData (tidak berubah)
+  const categoryData = useMemo(() => {
+    if (!allProducts || allProducts.length === 0) return {};
+    const groupedData = {};
+    allProducts.forEach(product => {
+      if (!groupedData[product.category]) {
+        groupedData[product.category] = { id: { products: [] }, en: { products: [] } };
+      }
+      groupedData[product.category].id.products.push(product.name_id);
+      groupedData[product.category].en.products.push(product.name_en);
+    });
+    return groupedData;
+  }, [allProducts]);
+
+  // === RENDER ===
+  if (isLoading || isAuthLoading) {
+    return (
+      <div className="preloader" style={{ opacity: 1, visibility: 'visible' }}>
+        <img src="/assets/logo.png" alt="Loading Logo" className="preloader-icon" />
+        <p style={{ marginTop: '20px', color: 'var(--green-primary)' }}>
+          {isAuthLoading ? 'Checking session...' : 'Loading Data...'}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>
-      {/* Preloader tetap di root untuk transisi CSS */}
       <div className="preloader">
-        <img src="assets/logo.png" alt="Loading Logo" className="preloader-icon" />
+        <img src="/assets/logo.png" alt="Loading Logo" className="preloader-icon" />
       </div>
 
-      <Navbar currentLang={currentLang} onLangChange={handleLanguageChange} T={T} />
+      <Navbar 
+        currentLang={currentLang} 
+        onLangChange={handleLanguageChange} 
+        T={T} 
+        user={currentUser}
+        onLogout={handleLogout}
+      />
 
       <main>
-        <Hero T={T} />
-        <Products T={T} openCategoryModal={openCategoryModal} />
-        <About T={T} />
-        <Contact T={T} />
+        <Routes>
+          <Route
+            path="/"
+            element={<MainPage
+                       T={T}
+                       openCategoryModal={openCategoryModal}
+                       categoryData={categoryData}
+                       allProducts={allProducts}
+                     />}
+          />
+          
+          <Route
+            path="/login"
+            element={<LoginPage T={T} onLoginSuccess={handleLoginSuccess} />}
+          />
+
+          <Route
+            path="/admin/products"
+            element={
+              <ProtectedRoute user={currentUser}>
+                <ProductAdmin T={T} user={currentUser} />
+              </ProtectedRoute>
+            }
+          />
+          
+        </Routes>
       </main>
 
       <Footer T={T} />
 
-      {/* MODAL KATEGORI */}
+      {/* Modals (tidak berubah) */}
       {selectedCategory && (
         <CategoryModal
-          isOpen={isCategoryModalOpen && !isDetailModalOpen} // Tampilkan hanya jika detail TIDAK terbuka
+          isOpen={isCategoryModalOpen && !isDetailModalOpen}
           onClose={closeCategoryModal}
           category={selectedCategory}
-          categoryData={categoryData} // Menggunakan data lokal di fase ini
+          allProducts={allProducts}
           currentLang={currentLang}
           T={T}
           openProductDetailModal={openProductDetailModal}
         />
       )}
-      
-      {/* MODAL DETAIL PRODUK */}
       {selectedProduct && (
         <ProductDetailModal
           isOpen={isDetailModalOpen}
-          onClose={closeProductDetailModal} // Akan membuka kembali modal kategori
+          onClose={closeProductDetailModal}
           product={selectedProduct}
           T={T}
         />

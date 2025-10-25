@@ -25,6 +25,7 @@ export const categoryData = {
 
 export const translations = {
     'id': {
+        // --- Terjemahan dari file Anda ---
         navHome: 'Beranda', navProducts: 'Produk', navAbout: 'Tentang', navContact: 'Kontak',
         heroTitle: 'Solusi Terpercaya Produk Pangan Berkualitas',
         heroSubtitle: 'Menjamin kesegaran dan kualitas premium melalui kemitraan agrikultur lokal terpilih.',
@@ -63,9 +64,33 @@ export const translations = {
         modalHerbsDesc: 'Ragam bumbu segar yang menambah aroma dan cita rasa alami, dipilih untuk meningkatkan kualitas setiap hidangan.',
         modalBuahDesc: 'Buah segar penuh vitamin untuk setiap momen, dipetik pada tingkat kematangan optimal untuk rasa terbaik.',
         modalPanganDesc: 'Kacang, telur, tahu, tempe, dan bahan pokok berkualitas lainnya untuk melengkapi kebutuhan dapur Anda.',
-        modalFrozenDesc: 'Solusi cepat untuk hidangan praktis dan lezat, dibuat dari bahan berkualitas dan diproses secara higienis.'
+        modalFrozenDesc: 'Solusi cepat untuk hidangan praktis dan lezat, dibuat dari bahan berkualitas dan diproses secara higienis.',
+
+        // --- Terjemahan BARU untuk Halaman Admin & Login ---
+        login_title: 'Login Admin',
+        login_email: 'Email',
+        login_password: 'Password',
+        login_button: 'Login',
+        login_loading: 'Sedang login...',
+        login_error_generic: 'Email atau Password salah.',
+        admin_title: 'Manajemen Produk',
+        admin_welcome: 'Selamat datang',
+        admin_add_new: 'Tambah Produk Baru',
+        admin_category: 'Kategori (cth: Sayuran)',
+        admin_name_id: 'Nama Produk (Bahasa Indonesia)',
+        admin_name_en: 'Nama Produk (Bahasa Inggris)',
+        admin_add_button: 'Tambah Produk',
+        admin_product_list: 'Daftar Produk',
+        admin_loading: 'Memuat produk...',
+        admin_actions: 'Aksi',
+        admin_edit: 'Ubah',
+        admin_delete: 'Hapus',
+        admin_save: 'Simpan',
+        admin_cancel: 'Batal',
+        admin_confirm_delete: 'Apakah Anda yakin ingin menghapus produk ini?',
     },
     'en': {
+        // --- Terjemahan dari file Anda ---
         navHome: 'Home', navProducts: 'Products', navAbout: 'About', navContact: 'Contact',
         heroTitle: 'Trusted Solution for Quality Food Products',
         heroSubtitle: 'Ensuring premium freshness and quality through chosen local agricultural partnerships.',
@@ -104,6 +129,29 @@ export const translations = {
         modalHerbsDesc: 'A variety of fresh seasonings adding natural aroma and flavor, selected to enhance the quality of every dish.',
         modalBuahDesc: 'Fresh fruits full of vitamins for every moment, picked at optimal ripeness for the best flavor.',
         modalPanganDesc: 'Quality nuts, eggs, tofu, tempeh, and other staple foods to complete your kitchen needs.',
-        modalFrozenDesc: 'A quick solution for practical and delicious meals, made from quality ingredients and processed hygienically.'
+        modalFrozenDesc: 'A quick solution for practical and delicious meals, made from quality ingredients and processed hygienically.',
+
+        // --- Terjemahan BARU untuk Halaman Admin & Login ---
+        login_title: 'Admin Login',
+        login_email: 'Email',
+        login_password: 'Password',
+        login_button: 'Login',
+        login_loading: 'Logging in...',
+        login_error_generic: 'Incorrect Email or Password.',
+        admin_title: 'Product Management',
+        admin_welcome: 'Welcome',
+        admin_add_new: 'Add New Product',
+        admin_category: 'Category (e.g., Vegetables)',
+        admin_name_id: 'Product Name (Indonesian)',
+        admin_name_en: 'Product Name (English)',
+        admin_add_button: 'Add Product',
+        admin_product_list: 'Product List',
+        admin_loading: 'Loading products...',
+        admin_actions: 'Actions',
+        admin_edit: 'Edit',
+        admin_delete: 'Delete',
+        admin_save: 'Save',
+        admin_cancel: 'Cancel',
+        admin_confirm_delete: 'Are you sure you want to delete this product?',
     }
 };
